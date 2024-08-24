@@ -1,4 +1,3 @@
-import { AddToCart } from 'components/cart/add-to-cart';
 import Price from 'components/price';
 import Prose from 'components/prose';
 import { Product } from 'lib/shopify/types';
@@ -28,9 +27,7 @@ export function ProductDescription({ product }: { product: Product }) {
         />
       ) : null}
 
-      <Suspense fallback={null}>
-        <AddToCart variants={product.variants} availableForSale={product.availableForSale} />
-      </Suspense>
+      <Suspense fallback={null}></Suspense>
     </>
   );
 }

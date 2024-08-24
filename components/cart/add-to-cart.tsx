@@ -2,11 +2,9 @@
 
 import { PlusIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import { addItem } from 'components/cart/actions';
 import LoadingDots from 'components/loading-dots';
 import { ProductVariant } from 'lib/shopify/types';
-import { useSearchParams } from 'next/navigation';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useFormStatus } from 'react-dom';
 
 function SubmitButton({
   availableForSale,
@@ -70,23 +68,22 @@ export function AddToCart({
   variants: ProductVariant[];
   availableForSale: boolean;
 }) {
-  const [message, formAction] = useFormState(addItem, null);
-  const searchParams = useSearchParams();
-  const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
-  const variant = variants.find((variant: ProductVariant) =>
-    variant.selectedOptions.every(
-      (option) => option.value === searchParams.get(option.name.toLowerCase())
-    )
-  );
-  const selectedVariantId = variant?.id || defaultVariantId;
-  const actionWithVariant = formAction.bind(null, selectedVariantId);
-
-  return (
-    <form action={actionWithVariant}>
-      <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
-      <p aria-live="polite" className="sr-only" role="status">
-        {message}
-      </p>
-    </form>
-  );
+  // const [message, formAction] = useFormState(addItem, null);
+  // const searchParams = useSearchParams();
+  // const defaultVariantId = variants.length === 1 ? variants[0]?.id : undefined;
+  // const variant = variants.find((variant: ProductVariant) =>
+  //   variant.selectedOptions.every(
+  //     (option) => option.value === searchParams.get(option.name.toLowerCase())
+  //   )
+  // );
+  // const selectedVariantId = variant?.id || defaultVariantId;
+  // const actionWithVariant = formAction.bind(null, selectedVariantId);
+  // return (
+  //   <form action={actionWithVariant}>
+  //     <SubmitButton availableForSale={availableForSale} selectedVariantId={selectedVariantId} />
+  //     <p aria-live="polite" className="sr-only" role="status">
+  //       {message}
+  //     </p>
+  //   </form>
+  // );
 }
