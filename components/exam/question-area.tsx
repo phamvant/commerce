@@ -123,7 +123,7 @@ function FreeResponse({
 }) {
   return (
     <div className="flex w-full flex-wrap gap-10">
-      <div className="h-96 min-w-96 flex-1 rounded-xl bg-slate-200 p-4 text-2xl shadow-xl">
+      <div className="h-96 min-w-72 flex-1 rounded-xl bg-slate-200 p-4 text-2xl shadow-xl">
         {question[curQues].question}
       </div>
       <textarea
@@ -138,7 +138,7 @@ function FreeResponse({
             return newResponse;
           });
         }}
-        className="h-96 min-w-96 flex-1 rounded-xl border-[1px] p-4"
+        className="h-96 min-w-44 flex-1 rounded-xl border-[1px] p-4"
         placeholder="Answer"
       />
     </div>
